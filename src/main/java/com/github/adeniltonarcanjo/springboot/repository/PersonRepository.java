@@ -17,13 +17,11 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
     // using jpa
     // GreaterThan is on specification
+    // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods in Query Creation
     List<Person> findByIdGreaterThan(Long Id);
 
     List<Person> findByName(String Name);
 
     List<Person> findByOrderByName();
-
-
-
 
 }

@@ -17,41 +17,48 @@ public class PersonController {
     private PersonRepository personRepository;
 
     @GetMapping("/{id}")
-    public Person user(@PathVariable("id") Long id ) {
-        Optional <Person> userFind= this.personRepository.findById(id);
+    public Person user(@PathVariable("id") Long id) {
+        Optional<Person> userFind = this.personRepository.findById(id);
 
-        if (userFind.isPresent()){
+        if (userFind.isPresent()) {
             return userFind.get();
-        }else {
+        } else {
             return null;
         }
     }
 
+    // add person
     @PostMapping("/")
-    public Person user(@RequestBody Person user){
+    public Person user(@RequestBody Person user) {
         return this.personRepository.save(user);
 
     }
 
+    // consult list
     @GetMapping("/list")
-    public List<Person> userList(){
+    public List<Person> userList() {
         return this.personRepository.findAll();
     }
 
+    // consult by id>id_parameter
     @GetMapping("/list/{id}")
-    public List<Person> userListMoreThan(@PathVariable("id") Long id){
+    public List<Person> userListMoreThan(@PathVariable("id") Long id) {
         return this.personRepository.findByIdGreaterThan(id);
     }
 
+    // consult by name
     @GetMapping("/findByName/{name}")
-    public List<Person> userListName(@PathVariable("name") String name){
+    public List<Person> userListName(@PathVariable("name") String name) {
         return this.personRepository.findByName(name);
     }
 
+    // list order by name
     @GetMapping("/listOrder")
-    public List<Person> userListNameOrder(){
+    public List<Person> userListNameOrder() {
         return this.personRepository.findByOrderByName();
     }
+
+
 
 
 }
