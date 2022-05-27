@@ -14,11 +14,16 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     @Query("SELECT u from Person u where u.id > :id")
     List<Person> findAllMoreThan(@Param("id") Long id);
 
+
     // using jpa
     // GreaterThan is on specification
     List<Person> findByIdGreaterThan(Long Id);
 
     List<Person> findByName(String Name);
+
+    List<Person> findByOrderByName();
+
+
 
 
 }

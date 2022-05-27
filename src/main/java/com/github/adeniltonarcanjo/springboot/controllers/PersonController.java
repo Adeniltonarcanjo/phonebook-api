@@ -48,5 +48,10 @@ public class PersonController {
         return this.personRepository.findByName(name);
     }
 
+    @GetMapping("/listOrder")
+    public List<Person> userListNameOrder(){
+        return this.personRepository.findByOrderByName();
+    }
+
 
 }
