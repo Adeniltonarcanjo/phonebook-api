@@ -15,8 +15,6 @@ import java.util.Optional;
 public class UserController {
 
 
-    private List<User> listUser= new ArrayList<>();
-
     @Autowired
     private UserRepository userRepository;
 
@@ -44,7 +42,12 @@ public class UserController {
 
     @GetMapping("/list/{id}")
     public List<User> userListMoreThan(@PathVariable("id") Long id){
-        return this.userRepository.findAllMoreThan(id);
+        return this.userRepository.findByIdGreaterThan(id);
+    }
+
+    @GetMapping("/findByName/{name}")
+    public List<User> userListName(@PathVariable("name") String name){
+        return this.userRepository.findByName(name);
     }
 
 
