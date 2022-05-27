@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
 
 import javax.persistence.*;
 
@@ -14,13 +14,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table
-public class User {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String username;
+    private String phone;
+    private String email;
 
 
 }
